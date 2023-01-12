@@ -21,4 +21,4 @@
 git clone https://github.com/fbnmtz/figlet-fonts ~/.fbnmtz/figlet/
 
 # save alias to use new fonts
-echo "alias figlet='figlet -d ~/.fbnmtz/figlet/fonts'" >> .bashrc
+echo "alias figlet='figlet -d ~/.fbnmtz/figlet/fonts'" >> ~/.bashrc
