@@ -6,19 +6,23 @@
 # Created: Sunday, 2023/01/08 - 11:17:13
 # Author.: @fbnmtz, (fabiano.matoz@gmail.com)
 # ~·~·~·~·~·~·~·~·~·~·~·~·~~·~·~·~·~·~·~·~·~·~·~·~·~~·~·~·~·~·~~·~·~·~·~·~·~·~
-# Last Modified: Sunday, 2023/01/08 - 11:31:31
+# Last Modified: Saturday, 2023/01/14 - 10:54:06
 # Modified By..: @fbnmtz, (fabiano.matoz@gmail.com)
 # ~·~·~·~·~·~·~·~·~·~·~·~·~~·~·~·~·~·~·~·~·~·~·~·~·~~·~·~·~·~·~~·~·~·~·~·~·~·~
-# Version: 0.0.1.10
+# Version: 0.0.2.30
 # ~·~·~·~·~·~·~·~·~·~·~·~·~~·~·~·~·~·~·~·~·~·~·~·~·~~·~·~·~·~·~~·~·~·~·~·~·~·~
 # Description: 
-#  >
+#  > download a collection of fonts and create an alias for 'figlet'
 # ############################################################################
 # HISTORY:
 #
 
 # download fonts
-git clone https://github.com/fbnmtz/figlet-fonts ~/.fbnmtz/figlet/
+[ ! -d ~/.fbnmtz/figlet ] && \
+    git clone https://github.com/fbnmtz/figlet-fonts ~/.fbnmtz/figlet/
 
 # save alias to use new fonts
-echo "alias figlet='figlet -d ~/.fbnmtz/figlet/fonts'" >> ~/.bashrc
+if ! grep "alias figlet=" ~/.profile; then
+    echo -e "\n# add alias to figlet to include directory with fonts\n\
+        alias figlet='figlet -d ~/.fbnmtz/figlet/fonts'\n" >> ~/.profile
+fi
